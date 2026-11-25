@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aljabar - MATHZONE Kelas VII</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="aljabar.css" />
+  </head>
+  <body>
+    <!-- Latar Belakang Bangun Datar Beranimasi -->
+    <div class="shapes-bg" aria-hidden="true">
+      <svg class="shape shape-triangle" viewBox="0 0 180 190">
+        <polygon points="22,95 148,25 152,172" class="shape-shadow" />
+        <polygon points="15,88 141,18 145,165" class="shape-fill" />
+      </svg>
+      <svg class="shape shape-diamond" viewBox="0 0 210 180">
+        <polygon points="105,22 195,92 105,165 15,92" class="shape-shadow" />
+        <polygon points="105,10 195,80 105,153 15,80" class="shape-fill" />
+      </svg>
+      <svg class="shape shape-pentagon" viewBox="0 0 200 200">
+        <polygon
+          points="65,24 172,44 186,148 92,192 26,112"
+          class="shape-shadow"
+        />
+        <polygon
+          points="55,16 162,36 176,140 82,184 16,104"
+          class="shape-fill"
+        />
+      </svg>
+      <svg class="shape shape-circle" viewBox="0 0 190 190">
+        <circle cx="100" cy="100" r="76" class="shape-shadow" />
+        <circle cx="90" cy="90" r="76" class="shape-fill" />
+      </svg>
+    </div>
+
+    <!-- Header Navigasi Atas -->
+    <header class="top-bar">
+      <a href="menu_utama.html" class="back-btn">&larr; Menu Utama</a>
+
+      <div class="brand-logo">
+        <span class="main-title">MATHZONE</span>
+        <span class="sub-title">KELAS VII</span>
+      </div>
+
+      <div class="student-badge" id="studentBadge">Halo, Siswa</div>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="content-wrapper">
+      <!-- Hero Judul Materi -->
+      <section class="hero-card">
+        <h1 class="page-title">ALJABAR</h1>
+        <p class="hero-desc">
+          <strong>Bentuk Aljabar</strong> adalah kalimat matematika yang memuat
+          huruf sebagai perwakilan bilangan yang belum diketahui nilainya.
+          Perhatikan bagian-bagian pada contoh bentuk aljabar
+          <code>4x + 7</code> berikut:
+        </p>
+
+        <div class="anatomy-grid">
+          <div class="anatomy-item">
+            <span class="anatomy-badge">KOEFISIEN (4)</span>
+            <p>Bilangan yang menempel di depan variabel.</p>
+          </div>
+          <div class="anatomy-item">
+            <span class="anatomy-badge">VARIABEL (x)</span>
+            <p>Huruf pengganti bilangan yang belum diketahui.</p>
+          </div>
+          <div class="anatomy-item">
+            <span class="anatomy-badge">KONSTANTA (7)</span>
+            <p>Bilangan tetap yang tidak memuat variabel.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         1. MATERI UNSUR-UNSUR BENTUK ALJABAR
+         ========================================== -->
+      <section class="materi-card" id="materi-unsur">
+        <div class="materi-header">
+          <span class="materi-number">1</span>
+          <h2>Mengenal Unsur Bentuk Aljabar</h2>
+        </div>
+
+        <div class="materi-rules">
+          <ul>
+            <li>
+              Tanda operasi (<code>+</code> atau <code>&minus;</code>) ikut
+              menjadi bagian dari koefisien maupun konstanta.
+            </li>
+            <li>
+              Contoh: Pada <code>3x &minus; 5y &minus; 9</code>, koefisien
+              <code>x</code> adalah <code>3</code>, koefisien
+              <code>y</code> adalah <code>-5</code>, dan konstantanya adalah
+              <code>-9</code>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="practice-box">
+          <h3>Latihan Interaktif Unsur Aljabar</h3>
+          <div class="equation-row">
+            <div class="num-box expr-box" id="unsur-boxA">5x - 3y + 8</div>
+          </div>
+
+          <div class="dual-input-row">
+            <div class="sub-input-group">
+              <label for="unsur-koef-input" id="unsur-koef-label"
+                >Koefisien x =</label
+              >
+              <input
+                type="number"
+                class="ans-input"
+                id="unsur-koef-input"
+                placeholder="?"
+              />
+            </div>
+            <div class="sub-input-group">
+              <label for="unsur-konst-input">Konstanta =</label>
+              <input
+                type="number"
+                class="ans-input"
+                id="unsur-konst-input"
+                placeholder="?"
+              />
+            </div>
+          </div>
+
+          <div class="practice-actions">
+            <button
+              type="button"
+              class="btn-check"
+              onclick="cekLatihan('unsur')"
+            >
+              Cek Jawaban
+            </button>
+            <button
+              type="button"
+              class="btn-retry"
+              onclick="buatSoalLatihan('unsur')"
+            >
+              Coba Lagi
+            </button>
+          </div>
+          <div class="feedback-box" id="unsur-feedback" hidden></div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         2. PENJUMLAHAN & PENGURANGAN SUKU SEJENIS
+         ========================================== -->
+      <section class="materi-card" id="materi-tambah-kurang">
+        <div class="materi-header">
+          <span class="materi-number">2</span>
+          <h2>Penjumlahan &amp; Pengurangan Bentuk Aljabar</h2>
+        </div>
+
+        <div class="materi-rules">
+          <ul>
+            <li>
+              Hanya <strong>suku-suku sejenis</strong> (memiliki variabel dan
+              pangkat yang sama) yang dapat dijumlahkan atau dikurangkan.
+            </li>
+            <li>
+              Contoh:
+              <code
+                >(4x + 5) + (2x &minus; 3) = (4x + 2x) + (5 &minus; 3) = 6x +
+                2</code
+              >.
+            </li>
+          </ul>
+        </div>
+
+        <div class="practice-box">
+          <h3>Latihan Interaktif Penjumlahan &amp; Pengurangan</h3>
+          <p class="practice-hint">
+            Sederhanakan bentuk aljabar berikut (contoh penulisan:
+            <code>6x + 2</code> atau <code>3x - 4</code>)
+          </p>
+          <div class="equation-row">
+            <div class="num-box expr-box" id="addsub-boxA">(4x + 5)</div>
+            <span class="op-symbol" id="addsub-op">+</span>
+            <div class="num-box expr-box" id="addsub-boxB">(2x - 3)</div>
+            <span class="op-symbol">=</span>
+            <input
+              type="text"
+              class="ans-input text-wide"
+              id="addsub-input"
+              placeholder="cth: 6x + 2"
+              autocomplete="off"
+              aria-label="Jawaban penyederhanaan aljabar"
+            />
+          </div>
+
+          <div class="practice-actions">
+            <button
+              type="button"
+              class="btn-check"
+              onclick="cekLatihan('addsub')"
+            >
+              Cek Jawaban
+            </button>
+            <button
+              type="button"
+              class="btn-retry"
+              onclick="buatSoalLatihan('addsub')"
+            >
+              Coba Lagi
+            </button>
+          </div>
+          <div class="feedback-box" id="addsub-feedback" hidden></div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         3. PERKALIAN BENTUK ALJABAR (SIFAT DISTRIBUTIF)
+         ========================================== -->
+      <section class="materi-card" id="materi-perkalian">
+        <div class="materi-header">
+          <span class="materi-number">3</span>
+          <h2>Perkalian Bentuk Aljabar (Sifat Distributif)</h2>
+        </div>
+
+        <div class="materi-rules">
+          <ul>
+            <li>
+              Kalikan bilangan di luar kurung dengan
+              <strong>setiap suku</strong> di dalam kurung:
+              <code>k(ax + b) = (k &times; ax) + (k &times; b)</code>.
+            </li>
+            <li>
+              Contoh:
+              <code
+                >3(2x &minus; 4) = (3 &times; 2x) + (3 &times; (-4)) = 6x
+                &minus; 12</code
+              >.
+            </li>
+          </ul>
+        </div>
+
+        <div class="practice-box">
+          <h3>Latihan Interaktif Perkalian Aljabar</h3>
+          <div class="equation-row">
+            <div class="num-box" id="mul-boxA">3</div>
+            <span class="op-symbol">&times;</span>
+            <div class="num-box expr-box" id="mul-boxB">(2x - 4)</div>
+            <span class="op-symbol">=</span>
+            <input
+              type="text"
+              class="ans-input text-wide"
+              id="mul-input"
+              placeholder="cth: 6x - 12"
+              autocomplete="off"
+              aria-label="Jawaban perkalian aljabar"
+            />
+          </div>
+
+          <div class="practice-actions">
+            <button type="button" class="btn-check" onclick="cekLatihan('mul')">
+              Cek Jawaban
+            </button>
+            <button
+              type="button"
+              class="btn-retry"
+              onclick="buatSoalLatihan('mul')"
+            >
+              Coba Lagi
+            </button>
+          </div>
+          <div class="feedback-box" id="mul-feedback" hidden></div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         4. SUBSTITUSI NILAI KE BENTUK ALJABAR
+         ========================================== -->
+      <section class="materi-card" id="materi-substitusi">
+        <div class="materi-header">
+          <span class="materi-number">4</span>
+          <h2>Substitusi Nilai ke Bentuk Aljabar</h2>
+        </div>
+
+        <div class="materi-rules">
+          <ul>
+            <li>
+              <strong>Substitusi</strong> artinya mengganti setiap huruf
+              (variabel) dengan bilangan yang diketahui, lalu menghitung
+              nilainya.
+            </li>
+            <li>
+              Contoh: Jika <code>x = 3</code>, maka nilai
+              <code>2x + 5 = 2(3) + 5 = 6 + 5 = 11</code>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="practice-box">
+          <h3>Latihan Interaktif Substitusi Nilai</h3>
+          <div class="equation-row">
+            <div class="price-card">
+              <span class="price-label">Bentuk Aljabar</span>
+              <div class="num-box expr-box" id="subval-boxA">3x + 2y - 4</div>
+            </div>
+            <div class="price-card">
+              <span class="price-label">Nilai Variabel</span>
+              <div class="num-box expr-box" id="subval-boxB">x = 2, y = -1</div>
+            </div>
+            <div class="price-card">
+              <span class="price-label">Hasil Nilai</span>
+              <input
+                type="number"
+                class="ans-input"
+                id="subval-input"
+                placeholder="?"
+                aria-label="Hasil substitusi aljabar"
+              />
+            </div>
+          </div>
+
+          <div class="practice-actions">
+            <button
+              type="button"
+              class="btn-check"
+              onclick="cekLatihan('subval')"
+            >
+              Cek Jawaban
+            </button>
+            <button
+              type="button"
+              class="btn-retry"
+              onclick="buatSoalLatihan('subval')"
+            >
+              Coba Lagi
+            </button>
+          </div>
+          <div class="feedback-box" id="subval-feedback" hidden></div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         5. TES KEMAMPUAN (15 SOAL ABCD)
+         ========================================== -->
+      <section class="quiz-section" id="tes-kemampuan">
+        <div class="quiz-header">
+          <h2>TES KEMAMPUAN ALJABAR</h2>
+          <p>
+            Kerjakan 15 soal pilihan ganda (hitungan &amp; soal cerita). Nilai 3
+            percobaan terakhir otomatis tersimpan di Spreadsheet untuk
+            pemantauan guru dan orang tua.
+          </p>
+          <div class="history-pill" id="attemptHistoryPill">
+            Riwayat Nilai: Belum ada
+          </div>
+        </div>
+
+        <form id="quizForm">
+          <div id="quizContainer" class="quiz-list"></div>
+
+          <div class="quiz-footer">
+            <button type="submit" id="submitQuizBtn" class="btn-submit-quiz">
+              KIRIM JAWABAN
+            </button>
+            <button
+              type="button"
+              id="retakeQuizBtn"
+              class="btn-retake-quiz"
+              hidden
+            >
+              KERJAKAN ULANG (SOAL BARU)
+            </button>
+          </div>
+        </form>
+
+        <div id="quizResultPanel" class="result-panel" hidden></div>
+      </section>
+    </main>
+
+    <script src="aljabar.js"></script>
+  </body>
+</html>

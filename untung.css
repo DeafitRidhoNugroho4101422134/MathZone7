@@ -1,0 +1,761 @@
+:root {
+  --primary-orange: #fe5900;
+  --bg-cream: #fcf8d2;
+  --input-yellow: #ffcb32;
+  --btn-sage: #dcd8b0;
+  --shape-yellow: #ffe17d;
+  --shape-border: #ce8585;
+  --card-bg: #fffdf0;
+  --text-dark: #432818;
+  --success-green: #1e8e3e;
+  --success-bg: #e6f4ea;
+  --error-red: #c5221f;
+  --error-bg: #fce8e6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-cream);
+  font-family: "Fredoka", sans-serif;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =========================================
+   LATAR BELAKANG BANGUN DATAR BERANIMASI
+   ========================================= */
+.shapes-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.65;
+  will-change: transform;
+}
+
+.shape-fill {
+  fill: var(--shape-yellow);
+  stroke: var(--shape-border);
+  stroke-width: 4.5px;
+  stroke-linejoin: round;
+}
+
+.shape-shadow {
+  fill: var(--shape-border);
+  stroke: var(--shape-border);
+  stroke-width: 4.5px;
+  stroke-linejoin: round;
+}
+
+.shape-triangle {
+  width: clamp(110px, 14vw, 180px);
+  top: 12%;
+  left: 2%;
+  animation: floatA 8s ease-in-out infinite;
+}
+
+.shape-diamond {
+  width: clamp(130px, 16vw, 210px);
+  top: 8%;
+  right: 4%;
+  animation: floatB 9s ease-in-out infinite;
+}
+
+.shape-pentagon {
+  width: clamp(120px, 15vw, 190px);
+  bottom: 14%;
+  right: 3%;
+  animation: floatA 8.5s ease-in-out infinite 1s;
+}
+
+.shape-circle {
+  width: clamp(120px, 15vw, 190px);
+  bottom: 10%;
+  left: 3%;
+  animation: floatB 7.5s ease-in-out infinite reverse;
+}
+
+@keyframes floatA {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(6deg);
+  }
+}
+
+@keyframes floatB {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(15px) rotate(-6deg);
+  }
+}
+
+/* =========================================
+   HEADER NAVIGASI ATAS
+   ========================================= */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(252, 248, 210, 0.94);
+  backdrop-filter: blur(6px);
+  border-bottom: 3px solid rgba(254, 89, 0, 0.25);
+  padding: 0.9rem 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.back-btn {
+  text-decoration: none;
+  background-color: var(--btn-sage);
+  border: 3px solid var(--primary-orange);
+  color: var(--primary-orange);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  transition:
+    transform 0.15s ease,
+    background-color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: var(--primary-orange);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.brand-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.main-title {
+  font-family: "Caprasimo", cursive;
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
+  color: var(--primary-orange);
+}
+
+.sub-title {
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--primary-orange);
+}
+
+.student-badge {
+  background-color: var(--input-yellow);
+  border: 3px solid var(--primary-orange);
+  color: var(--primary-orange);
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+}
+
+/* =========================================
+   CONTAINER UTAMA & HERO
+   ========================================= */
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 1.8rem 1.2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.hero-card {
+  background-color: var(--card-bg);
+  border: 4.5px solid var(--primary-orange);
+  border-radius: 24px;
+  padding: 1.8rem;
+  text-align: center;
+  box-shadow: 0 7px 0 rgba(254, 89, 0, 0.18);
+}
+
+.page-title {
+  font-family: "Caprasimo", cursive;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--primary-orange);
+  margin-bottom: 0.65rem;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+
+.concept-item {
+  background-color: var(--bg-cream);
+  border: 3px dashed var(--primary-orange);
+  border-radius: 16px;
+  padding: 0.85rem 0.65rem;
+}
+
+.concept-badge {
+  display: inline-block;
+  background-color: var(--primary-orange);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 0.4rem;
+}
+
+.concept-item p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* =========================================
+   KARTU MATERI & LATIHAN INTERAKTIF
+   ========================================= */
+.materi-card {
+  background-color: var(--card-bg);
+  border: 4.5px solid var(--primary-orange);
+  border-radius: 24px;
+  padding: 1.6rem;
+  box-shadow: 0 7px 0 rgba(254, 89, 0, 0.18);
+}
+
+.materi-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.materi-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background-color: var(--primary-orange);
+  color: #fff;
+  font-family: "Caprasimo", cursive;
+  font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.materi-header h2 {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  color: var(--primary-orange);
+}
+
+.materi-rules {
+  background-color: var(--bg-cream);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  border-left: 5px solid var(--primary-orange);
+}
+
+.materi-rules ul {
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  line-height: 1.5;
+}
+
+.materi-rules code {
+  background-color: #ffe8b3;
+  color: #b83b00;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+}
+
+/* Kotak Latihan Interaktif */
+.practice-box {
+  background-color: #fff6cf;
+  border: 3px solid var(--primary-orange);
+  border-radius: 18px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.practice-box h3 {
+  font-size: 1.05rem;
+  color: var(--primary-orange);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.equation-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.price-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.price-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--primary-orange);
+  text-transform: uppercase;
+}
+
+.percent-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dual-input-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  margin-bottom: 1.15rem;
+}
+
+.sub-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sub-input-group label {
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--primary-orange);
+}
+
+.num-box {
+  min-width: 110px;
+  height: 62px;
+  padding: 0 1.1rem;
+  background-color: var(--input-yellow);
+  border: 4px solid var(--primary-orange);
+  border-radius: 14px;
+  font-family: "Caprasimo", cursive;
+  font-size: 1.45rem;
+  color: var(--primary-orange);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 0 rgba(254, 89, 0, 0.2);
+}
+
+.num-box.money {
+  min-width: 155px;
+  font-size: 1.35rem;
+}
+
+.num-box.condition-box {
+  min-width: 155px;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.op-symbol {
+  font-family: "Caprasimo", cursive;
+  font-size: 1.75rem;
+  color: var(--primary-orange);
+}
+
+.ans-input {
+  width: 105px;
+  height: 62px;
+  background-color: #fff;
+  border: 4px solid var(--primary-orange);
+  border-radius: 14px;
+  font-family: "Caprasimo", cursive;
+  font-size: 1.5rem;
+  color: var(--primary-orange);
+  text-align: center;
+  outline: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.ans-input.money-input {
+  width: 165px;
+  font-size: 1.35rem;
+}
+
+.ans-select {
+  height: 62px;
+  padding: 0 0.9rem;
+  background-color: #fff;
+  border: 4px solid var(--primary-orange);
+  border-radius: 14px;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--primary-orange);
+  outline: none;
+  cursor: pointer;
+}
+
+.ans-input:focus,
+.ans-select:focus {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 4px rgba(254, 89, 0, 0.2);
+}
+
+.practice-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.btn-check,
+.btn-retry {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 14px;
+  border: 3.5px solid var(--primary-orange);
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background-color 0.2s ease;
+}
+
+.btn-check {
+  background-color: var(--primary-orange);
+  color: #fff;
+}
+
+.btn-check:hover {
+  background-color: #e04e00;
+  transform: translateY(-2px);
+}
+
+.btn-retry {
+  background-color: var(--btn-sage);
+  color: var(--primary-orange);
+}
+
+.btn-retry:hover {
+  background-color: #e6e2be;
+  transform: translateY(-2px);
+}
+
+/* Kotak Penjelasan / Feedback */
+.feedback-box {
+  margin-top: 1rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: 14px;
+  text-align: left;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  animation: fadeIn 0.25s ease;
+}
+
+.feedback-box.correct {
+  background-color: var(--success-bg);
+  border: 2.5px solid var(--success-green);
+  color: #135e29;
+}
+
+.feedback-box.wrong {
+  background-color: var(--error-bg);
+  border: 2.5px solid var(--error-red);
+  color: #8a1917;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   TES KEMAMPUAN (15 SOAL ABCD)
+   ========================================= */
+.quiz-section {
+  background-color: var(--card-bg);
+  border: 5px solid var(--primary-orange);
+  border-radius: 26px;
+  padding: 1.8rem;
+  box-shadow: 0 8px 0 rgba(254, 89, 0, 0.22);
+}
+
+.quiz-header {
+  text-align: center;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 3px dashed rgba(254, 89, 0, 0.35);
+}
+
+.quiz-header h2 {
+  font-family: "Caprasimo", cursive;
+  font-size: clamp(1.6rem, 3.8vw, 2.4rem);
+  color: var(--primary-orange);
+  margin-bottom: 0.5rem;
+}
+
+.quiz-header p {
+  font-size: 1rem;
+  max-width: 650px;
+  margin: 0 auto 0.9rem;
+  line-height: 1.5;
+}
+
+.history-pill {
+  display: inline-block;
+  background-color: var(--input-yellow);
+  border: 3px solid var(--primary-orange);
+  color: var(--primary-orange);
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+}
+
+.quiz-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.question-card {
+  background-color: var(--bg-cream);
+  border: 3px solid var(--primary-orange);
+  border-radius: 18px;
+  padding: 1.2rem;
+  transition: border-color 0.2s ease;
+}
+
+.question-card.unanswered {
+  border-color: var(--error-red);
+  box-shadow: 0 0 0 4px rgba(197, 34, 31, 0.18);
+}
+
+.q-badge {
+  display: inline-block;
+  background-color: var(--primary-orange);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.55rem;
+}
+
+.q-text {
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.55;
+  margin-bottom: 0.9rem;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: #fff;
+  border: 2.5px solid #e0a96d;
+  border-radius: 12px;
+  padding: 0.65rem 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.option-label:hover {
+  border-color: var(--primary-orange);
+  background-color: #fff7db;
+}
+
+.option-label input[type="radio"] {
+  accent-color: var(--primary-orange);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.option-label.correct-choice {
+  background-color: var(--success-bg);
+  border-color: var(--success-green);
+  color: #135e29;
+}
+
+.option-label.wrong-choice {
+  background-color: var(--error-bg);
+  border-color: var(--error-red);
+  color: #8a1917;
+}
+
+.q-explanation {
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  background-color: #fff;
+  border-left: 4px solid var(--primary-orange);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.quiz-footer {
+  margin-top: 1.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-submit-quiz,
+.btn-retake-quiz {
+  padding: 0.95rem 2.2rem;
+  border: 4.5px solid var(--primary-orange);
+  border-radius: 22px;
+  font-family: "Caprasimo", cursive;
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-submit-quiz {
+  background-color: var(--btn-sage);
+  color: var(--primary-orange);
+  box-shadow: 0 6px 0 rgba(254, 89, 0, 0.22);
+}
+
+.btn-submit-quiz:hover:not(:disabled) {
+  transform: translateY(-3px);
+  background-color: #e6e2be;
+}
+
+.btn-submit-quiz:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.btn-retake-quiz {
+  background-color: var(--input-yellow);
+  color: var(--primary-orange);
+}
+
+.btn-retake-quiz:hover {
+  transform: translateY(-3px);
+}
+
+.result-panel {
+  margin-top: 1.5rem;
+  padding: 1.4rem;
+  border-radius: 18px;
+  background-color: #fff6cf;
+  border: 4px solid var(--primary-orange);
+  text-align: center;
+}
+
+.result-score {
+  font-family: "Caprasimo", cursive;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: var(--primary-orange);
+  margin: 0.3rem 0;
+}
+
+.sync-status {
+  margin-top: 0.6rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (HP & TABLET)
+   ========================================= */
+@media (max-width: 680px) {
+  .top-bar {
+    padding: 0.75rem 1rem;
+  }
+
+  .back-btn,
+  .student-badge {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .concept-grid,
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .num-box.money,
+  .num-box.condition-box,
+  .ans-input.money-input {
+    min-width: 140px;
+    width: 150px;
+    height: 54px;
+    font-size: 1.18rem;
+  }
+
+  .ans-input,
+  .ans-select {
+    height: 54px;
+    font-size: 1.2rem;
+  }
+
+  .materi-card,
+  .hero-card,
+  .quiz-section {
+    padding: 1.25rem 1rem;
+    border-width: 4px;
+  }
+}

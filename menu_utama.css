@@ -1,0 +1,348 @@
+:root {
+  --primary-orange: #fe5900;
+  --bg-cream: #fcf8d2;
+  --input-yellow: #ffcb32;
+  --btn-sage: #dcd8b0;
+  --btn-sage-hover: #e6e2be;
+  --shape-yellow: #ffe17d;
+  --shape-border: #ce8585;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-cream);
+  font-family: "Fredoka", sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =========================================
+   LATAR BELAKANG BANGUN DATAR & ANIMASI
+   ========================================= */
+.shapes-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  will-change: transform;
+}
+
+.shape-fill {
+  fill: var(--shape-yellow);
+  stroke: var(--shape-border);
+  stroke-width: 4.5px;
+  stroke-linejoin: round;
+}
+
+.shape-shadow {
+  fill: var(--shape-border);
+  stroke: var(--shape-border);
+  stroke-width: 4.5px;
+  stroke-linejoin: round;
+}
+
+/* Posisi & Animasi 7 Bangun Datar sesuai desain */
+.shape-triangle {
+  width: clamp(110px, 14vw, 195px);
+  top: 10%;
+  left: 3%;
+  filter: drop-shadow(0 10px 14px rgba(206, 133, 133, 0.35));
+  animation: floatRotateA 7s ease-in-out infinite;
+}
+
+.shape-diamond {
+  width: clamp(140px, 18vw, 240px);
+  top: 5%;
+  left: 37%;
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.shape-pentagon-top {
+  width: clamp(130px, 17vw, 230px);
+  top: 7%;
+  right: 9%;
+  animation: floatRotateB 9s ease-in-out infinite;
+}
+
+.shape-circle {
+  width: clamp(130px, 16vw, 220px);
+  top: 36%;
+  left: 18%;
+  animation: floatSlow 7.5s ease-in-out infinite reverse;
+}
+
+.shape-pentagon-mid {
+  width: clamp(120px, 15vw, 200px);
+  top: 34%;
+  left: 51%;
+  animation: floatRotateA 8.5s ease-in-out infinite 0.8s;
+}
+
+.shape-trapezoid {
+  width: clamp(125px, 16vw, 210px);
+  top: 43%;
+  right: 12%;
+  animation: floatRotateB 7.8s ease-in-out infinite 0.4s;
+}
+
+.shape-pentagon-bottom {
+  width: clamp(120px, 15vw, 200px);
+  bottom: 10%;
+  left: 40%;
+  animation: floatSlow 8.2s ease-in-out infinite 1.2s;
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(4deg);
+  }
+}
+
+@keyframes floatRotateA {
+  0%,
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(10px, -14px) rotate(7deg);
+  }
+}
+
+@keyframes floatRotateB {
+  0%,
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(-10px, 14px) rotate(-6deg);
+  }
+}
+
+/* =========================================
+   HEADER ATAS (LOGO & INFO SISWA)
+   ========================================= */
+.top-bar {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 1.6rem 2.4rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.brand-logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+
+.main-title {
+  font-family: "Caprasimo", cursive;
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  color: var(--primary-orange);
+  line-height: 0.95;
+  letter-spacing: 0.8px;
+}
+
+.sub-title {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+  color: var(--primary-orange);
+  margin-top: 0.15rem;
+  letter-spacing: 0.5px;
+}
+
+.user-panel {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.student-badge {
+  background-color: var(--input-yellow);
+  border: 3px solid var(--primary-orange);
+  color: var(--primary-orange);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+}
+
+.logout-btn {
+  background-color: var(--btn-sage);
+  border: 3px solid var(--primary-orange);
+  color: var(--primary-orange);
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: var(--primary-orange);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   KONTEN UTAMA & TOMBOL MATERI
+   ========================================= */
+.menu-container {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 1.25rem 2.5rem;
+}
+
+.menu-list {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.1rem, 2.4vh, 1.65rem);
+}
+
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: clamp(72px, 11vh, 102px);
+  padding: 0.9rem 1.5rem;
+  background-color: var(--btn-sage);
+  border: 5px solid var(--primary-orange);
+  border-radius: 24px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 6px 0 rgba(254, 89, 0, 0.2);
+  transition:
+    transform 0.18s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.menu-text {
+  font-family: "Caprasimo", cursive;
+  font-size: clamp(1.45rem, 3.8vw, 2.65rem);
+  color: var(--primary-orange);
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.menu-btn:hover {
+  transform: translateY(-4px) scale(1.015);
+  background-color: var(--btn-sage-hover);
+  box-shadow: 0 11px 22px rgba(254, 89, 0, 0.25);
+}
+
+.menu-btn:active,
+.menu-btn.clicked {
+  transform: translateY(2px) scale(0.99);
+  box-shadow: 0 3px 8px rgba(254, 89, 0, 0.2);
+}
+
+/* Badge Nilai (Muncul otomatis jika siswa sudah punya nilai di Spreadsheet) */
+.score-tag {
+  position: absolute;
+  right: 1.1rem;
+  background-color: var(--primary-orange);
+  color: #fff;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (TABLET & HP)
+   ========================================= */
+@media (max-width: 768px) {
+  .top-bar {
+    padding: 1.2rem 1.4rem 0.5rem;
+  }
+
+  .menu-btn {
+    border-width: 4.5px;
+    border-radius: 20px;
+  }
+
+  .score-tag {
+    position: static;
+    margin-left: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .menu-btn {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar {
+    padding: 1rem 1rem 0.25rem;
+    align-items: center;
+  }
+
+  .student-badge,
+  .logout-btn {
+    font-size: 0.82rem;
+    padding: 0.32rem 0.72rem;
+    border-width: 2.5px;
+  }
+
+  .menu-container {
+    padding: 1.2rem 1rem 2rem;
+  }
+
+  .menu-btn {
+    min-height: 68px;
+    border-width: 4px;
+    border-radius: 18px;
+    padding: 0.85rem 1rem;
+  }
+
+  .shape-circle {
+    left: 2%;
+  }
+
+  .shape-trapezoid {
+    right: 2%;
+  }
+}

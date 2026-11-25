@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bilangan Bulat - MATHZONE Kelas VII</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="bilbul.css" />
+  </head>
+  <body>
+    <!-- Latar Belakang Bangun Datar Beranimasi -->
+    <div class="shapes-bg" aria-hidden="true">
+      <svg class="shape shape-triangle" viewBox="0 0 180 190">
+        <polygon points="22,95 148,25 152,172" class="shape-shadow" />
+        <polygon points="15,88 141,18 145,165" class="shape-fill" />
+      </svg>
+      <svg class="shape shape-diamond" viewBox="0 0 210 180">
+        <polygon points="105,22 195,92 105,165 15,92" class="shape-shadow" />
+        <polygon points="105,10 195,80 105,153 15,80" class="shape-fill" />
+      </svg>
+      <svg class="shape shape-pentagon" viewBox="0 0 200 200">
+        <polygon
+          points="65,24 172,44 186,148 92,192 26,112"
+          class="shape-shadow"
+        />
+        <polygon
+          points="55,16 162,36 176,140 82,184 16,104"
+          class="shape-fill"
+        />
+      </svg>
+      <svg class="shape shape-circle" viewBox="0 0 190 190">
+        <circle cx="100" cy="100" r="76" class="shape-shadow" />
+        <circle cx="90" cy="90" r="76" class="shape-fill" />
+      </svg>
+    </div>
+
+    <!-- Header Navigasi Atas -->
+    <header class="top-bar">
+      <a href="menu_utama.html" class="back-btn">&larr; Menu Utama</a>
+
+      <div class="brand-logo">
+        <span class="main-title">MATHZONE</span>
+        <span class="sub-title">KELAS VII</span>
+      </div>
+
+      <div class="student-badge" id="studentBadge">Halo, Siswa</div>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="content-wrapper">
+      <!-- Hero Judul Materi -->
+      <section class="hero-card">
+        <h1 class="page-title">BILANGAN BULAT</h1>
+        <p class="hero-desc">
+          Bilangan bulat terdiri dari
+          <strong>bilangan bulat negatif</strong> (..., -3, -2, -1),
+          <strong>nol</strong> (0), dan
+          <strong>bilangan bulat positif</strong> (1, 2, 3, ...). Semakin ke
+          kanan pada garis bilangan, nilainya semakin besar.
+        </p>
+
+        <!-- Visual Garis Bilangan -->
+        <div
+          class="number-line-box"
+          aria-label="Garis bilangan dari negatif 5 sampai positif 5"
+        >
+          <div class="number-line">
+            <span>-5</span><span>-4</span><span>-3</span><span>-2</span
+            ><span>-1</span>
+            <span class="zero-point">0</span>
+            <span>1</span><span>2</span><span>3</span><span>4</span
+            ><span>5</span>
+          </div>
+          <div class="line-labels">
+            <span>&larr; Bilangan Negatif (Makin Kecil)</span>
+            <span>Bilangan Positif (Makin Besar) &rarr;</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         1. MATERI PENJUMLAHAN
+         ========================================== -->
+      <section class="materi-card" id="materi-penjumlahan">
+        <div class="materi-header">
+          <span class="materi-number">1</span>
+          <h2>Penjumlahan Bilangan Bulat</h2>
+        </div>
+
+        <div class="materi-rules">
+          <ul>
+            <li>
+              <strong>Tanda Sama:</strong> Jumlahkan angkanya, lalu ikuti tanda
+              keduanya. Contoh: <code>(-4) + (-5) = -9</code>.
+            </li>
+            <li>
+              <strong>Tanda Berbeda:</strong> Cari selisih angka besar dan
+              kecil, lalu ikuti tanda angka yang paling besar. Contoh:
+              <code>(-8) + 5 = -3</code>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="practice-box" data-op="add">
+          <h3>Latihan Interaktif Penjumlahan</h3>
+          <div class="equation-row">
+            <div class="num-box" id="add-boxA">0</div>
+            <span class="op-symbol">+</span>
+            <div class="num-box" id="add-boxB">0</div>
+            <span class="op-symbol">=</span>
+            <input
+              type="number"
+              class="ans-input"
+              id="add-input"
+              placeholder="?"
+              aria-label="Jawaban penjumlahan"
+            />
+          </div>
+          <div class="practice-actions">
+            <button type="button" class="btn-check" onclick="cekLatihan('add')">
+              Cek Jawaban
+            </button>
+            <button
+              type="button"
+              class="btn-retry"
+              onclick="buatSoalLatihan('add')"
+            >
+              Coba Lagi
+            </button>
+          </div>
+          <div class="feedback-box" id="add-feedback" hidden></div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         2. MATERI PENGURANGAN
+         ========================================== -->
+      <section class="materi-card" id="materi-pengurangan">
+        <div class="materi-header">
+          <span class="materi-number">2</span>
+          <h2>Pengurangan Bilangan Bulat</h2>
+        </div>
+
+        <div class="materi-rules">
+          <ul>
+            <li>
+              Mengurangi suatu bilangan sama dengan
+              <strong>menjumlahkan dengan lawannya</strong>:
+              <code>a - b = a + (-b)</code>.
+            </li>
+            <li>
+              Jika tanda kurang bertemu bilangan negatif, berubah menjadi
+              <strong>tambah</strong>: <code>a - (-b) = a + b</code>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="practice-box" data-op="sub">
+          <h3>Latihan Interaktif Pengurangan</h3>
+          <div class="equation-row">
+            <div class="num-box" id="sub-boxA">0</div>
+            <span class="op-symbol">&minus;</span>
+            <div class="num-box" id="sub-boxB">0</div>
+            <span class="op-symbol">=</span>
+            <input
+              type="number"
+              class="ans-input"
+              id="sub-input"
+              placeholder="?"
+              aria-label="Jawaban pengurangan"
+            />
+          </div>
+          <div class="practice-actions">
+            <button type="button" class="btn-check" onclick="cekLatihan('sub')">
+              Cek Jawaban
+            </button>
+            <button
+              type="button"
+              class="btn-retry"
+              onclick="buatSoalLatihan('sub')"
+            >
+              Coba Lagi
+            </button>
+          </div>
+          <div class="feedback-box" id="sub-feedback" hidden></div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         3. MATERI PERKALIAN
+         ========================================== -->
+      <section class="materi-card" id="materi-perkalian">
+        <div class="materi-header">
+          <span class="materi-number">3</span>
+          <h2>Perkalian Bilangan Bulat</h2>
+        </div>
+
+        <div class="materi-rules">
+          <ul>
+            <li>
+              <strong>Tanda Sama = Positif (+):</strong>
+              <code>(+) &times; (+) = (+)</code> dan
+              <code>(-) &times; (-) = (+)</code>.
+            </li>
+            <li>
+              <strong>Tanda Berbeda = Negatif (-):</strong>
+              <code>(+) &times; (-) = (-)</code> dan
+              <code>(-) &times; (+) = (-)</code>.
+            </li>
+          </ul>
+        </div>
+
+        <div class="practice-box" data-op="mul">
+          <h3>Latihan Interaktif Perkalian</h3>
+          <div class="equation-row">
+            <div class="num-box" id="mul-boxA">0</div>
+            <span class="op-symbol">&times;</span>
+            <div class="num-box" id="mul-boxB">0</div>
+            <span class="op-symbol">=</span>
+            <input
+              type="number"
+              class="ans-input"
+              id="mul-input"
+              placeholder="?"
+              aria-label="Jawaban perkalian"
+            />
+          </div>
+          <div class="practice-actions">
+            <button type="button" class="btn-check" onclick="cekLatihan('mul')">
+              Cek Jawaban
+            </button>
+            <button
+              type="button"
+              class="btn-retry"
+              onclick="buatSoalLatihan('mul')"
+            >
+              Coba Lagi
+            </button>
+          </div>
+          <div class="feedback-box" id="mul-feedback" hidden></div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         4. MATERI PEMBAGIAN
+         ========================================== -->
+      <section class="materi-card" id="materi-pembagian">
+        <div class="materi-header">
+          <span class="materi-number">4</span>
+          <h2>Pembagian Bilangan Bulat</h2>
+        </div>
+
+        <div class="materi-rules">
+          <ul>
+            <li>Aturan tanda pembagian sama persis dengan perkalian:</li>
+            <li>
+              <strong>Tanda Sama = Positif (+)</strong> (<code
+                >(-) &divide; (-) = (+)</code
+              >), sedangkan <strong>Tanda Berbeda = Negatif (-)</strong> (<code
+                >(-) &divide; (+) = (-)</code
+              >).
+            </li>
+          </ul>
+        </div>
+
+        <div class="practice-box" data-op="div">
+          <h3>Latihan Interaktif Pembagian</h3>
+          <div class="equation-row">
+            <div class="num-box" id="div-boxA">0</div>
+            <span class="op-symbol">&divide;</span>
+            <div class="num-box" id="div-boxB">0</div>
+            <span class="op-symbol">=</span>
+            <input
+              type="number"
+              class="ans-input"
+              id="div-input"
+              placeholder="?"
+              aria-label="Jawaban pembagian"
+            />
+          </div>
+          <div class="practice-actions">
+            <button type="button" class="btn-check" onclick="cekLatihan('div')">
+              Cek Jawaban
+            </button>
+            <button
+              type="button"
+              class="btn-retry"
+              onclick="buatSoalLatihan('div')"
+            >
+              Coba Lagi
+            </button>
+          </div>
+          <div class="feedback-box" id="div-feedback" hidden></div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+         5. TES KEMAMPUAN (15 SOAL ABCD)
+         ========================================== -->
+      <section class="quiz-section" id="tes-kemampuan">
+        <div class="quiz-header">
+          <h2>TES KEMAMPUAN BILANGAN BULAT</h2>
+          <p>
+            Kerjakan 15 soal pilihan ganda (hitungan &amp; soal cerita). Nilai 3
+            percobaan terakhir otomatis tersimpan untuk pemantauan guru dan
+            orang tua.
+          </p>
+          <div class="history-pill" id="attemptHistoryPill">
+            Riwayat Nilai: Belum ada
+          </div>
+        </div>
+
+        <form id="quizForm">
+          <div id="quizContainer" class="quiz-list"></div>
+
+          <div class="quiz-footer">
+            <button type="submit" id="submitQuizBtn" class="btn-submit-quiz">
+              KIRIM JAWABAN
+            </button>
+            <button
+              type="button"
+              id="retakeQuizBtn"
+              class="btn-retake-quiz"
+              hidden
+            >
+              KERJAKAN ULANG (SOAL BARU)
+            </button>
+          </div>
+        </form>
+
+        <!-- Hasil Akhir & Status Pengiriman ke Spreadsheet -->
+        <div id="quizResultPanel" class="result-panel" hidden></div>
+      </section>
+    </main>
+
+    <script src="bilbul.js"></script>
+  </body>
+</html>

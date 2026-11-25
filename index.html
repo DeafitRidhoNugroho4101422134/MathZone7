@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MATHZONE - Kelas VII</title>
+    <!-- Google Fonts untuk gaya tulisan tebal & ramah siswa -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Latar Belakang Bangun Datar Beranimasi -->
+    <div class="shapes-bg" aria-hidden="true">
+      <!-- 1. Segitiga (Kiri Atas) -->
+      <svg class="shape shape-triangle" viewBox="0 0 180 190">
+        <polygon points="22,95 148,25 152,172" class="shape-shadow" />
+        <polygon points="15,88 141,18 145,165" class="shape-fill" />
+      </svg>
+
+      <!-- 2. Belah Ketupat (Tengah Atas) -->
+      <svg class="shape shape-diamond" viewBox="0 0 210 180">
+        <polygon points="105,22 195,92 105,165 15,92" class="shape-shadow" />
+        <polygon points="105,10 195,80 105,153 15,80" class="shape-fill" />
+      </svg>
+
+      <!-- 3. Segilima (Kanan Atas) -->
+      <svg class="shape shape-pentagon-top" viewBox="0 0 200 200">
+        <polygon
+          points="65,24 172,44 186,148 92,192 26,112"
+          class="shape-shadow"
+        />
+        <polygon
+          points="55,16 162,36 176,140 82,184 16,104"
+          class="shape-fill"
+        />
+      </svg>
+
+      <!-- 4. Lingkaran (Kiri Bawah) -->
+      <svg class="shape shape-circle" viewBox="0 0 190 190">
+        <circle cx="100" cy="100" r="76" class="shape-shadow" />
+        <circle cx="90" cy="90" r="76" class="shape-fill" />
+      </svg>
+
+      <!-- 5. Segilima (Tengah Bawah) -->
+      <svg class="shape shape-pentagon-bottom" viewBox="0 0 190 180">
+        <polygon
+          points="98,22 172,72 146,162 48,162 22,72"
+          class="shape-shadow"
+        />
+        <polygon
+          points="90,14 164,64 138,154 40,154 14,64"
+          class="shape-fill"
+        />
+      </svg>
+
+      <!-- 6. Trapesium (Kanan Bawah) -->
+      <svg class="shape shape-trapezoid" viewBox="0 0 180 195">
+        <polygon points="82,24 162,54 158,184 18,134" class="shape-shadow" />
+        <polygon points="74,14 154,44 150,174 10,124" class="shape-fill" />
+      </svg>
+    </div>
+
+    <!-- Konten Utama -->
+    <main class="container">
+      <header class="title-group">
+        <h1 class="main-title">MATHZONE</h1>
+        <p class="sub-title">KELAS VII</p>
+      </header>
+
+      <form id="loginForm" class="login-form" autocomplete="off">
+        <div class="input-group">
+          <input
+            type="text"
+            id="userName"
+            name="userName"
+            placeholder="Enter Your Name"
+            required
+            aria-label="Enter Your Name"
+          />
+        </div>
+
+        <div class="input-group">
+          <input
+            type="password"
+            id="userPassword"
+            name="userPassword"
+            placeholder="Password"
+            required
+            aria-label="Password"
+          />
+        </div>
+
+        <button type="submit" id="startBtn" class="start-btn">
+          <span id="btnText">START</span>
+        </button>
+
+        <!-- Pesan Status / Notifikasi Error & Loading -->
+        <p id="statusMessage" class="status-message" role="alert"></p>
+      </form>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
